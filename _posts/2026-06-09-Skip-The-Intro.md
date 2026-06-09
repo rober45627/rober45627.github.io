@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Skip The Intro"
+---
+
+This is a blog.
+Who am I? Great question.
+The only problem is I am not going to tell you. Not right away anyway.
+Read the posts as they come through and paint your own picture.
+
+MGS.
