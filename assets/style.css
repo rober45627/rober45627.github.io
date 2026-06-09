@@ -1,0 +1,107 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #F9F6F0;
+  color: #333;
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.site-wrapper {
+  max-width: 660px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  border-bottom: 1.5px solid #53B0AB;
+  margin-bottom: 2.5rem;
+}
+
+.site-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #53B0AB;
+  text-decoration: none;
+}
+
+.site-nav { display: flex; gap: 1.5rem; }
+
+.site-nav a {
+  font-size: 0.85rem;
+  color: #888;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  letter-spacing: 0.03em;
+}
+
+.site-nav a:hover { color: #53B0AB; }
+
+.post-list { display: flex; flex-direction: column; gap: 2.5rem; margin-bottom: 3rem; }
+
+.post-item { border-bottom: 0.5px solid #ddd; padding-bottom: 2rem; }
+
+.post-date {
+  font-size: 0.78rem;
+  color: #53B0AB;
+  font-family: Arial, sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.post-title {
+  font-size: 1.35rem;
+  color: #2a2a2a;
+  font-weight: bold;
+  margin-bottom: 0.6rem;
+  text-decoration: none;
+  display: block;
+}
+
+.post-excerpt {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0.9rem;
+}
+
+.read-more {
+  font-size: 0.82rem;
+  color: #53B0AB;
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+}
+
+.post-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 0.5px solid #ddd;
+}
+
+.post-header .post-title { font-size: 1.7rem; }
+
+.post-body p { margin-bottom: 1.2rem; }
+
+.back-link {
+  font-size: 0.82rem;
+  color: #53B0AB;
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.78rem;
+  color: #aaa;
+  font-family: Arial, sans-serif;
+  padding-top: 2rem;
+  border-top: 0.5px solid #ddd;
+  margin-top: 3rem;
+}
