@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "pushing forward"
-date: 09-06-2026
+date: 2026-06-09
 ---
 
 Where is this going?
