@@ -17,4 +17,4 @@ I mean, put the pieces together. I am not a superstituous guy, but maybe I shoul
 
 Rage and death await me, I'll choose the version on the pages though.
 
-MGS
+MGS.
