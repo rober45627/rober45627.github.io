@@ -3,4 +3,6 @@ layout: default
 title: About
 ---
 
-That's for me to know and for you to figure out
+## UNDER CONSTRUCTION
+
+(is that the site or me?)
