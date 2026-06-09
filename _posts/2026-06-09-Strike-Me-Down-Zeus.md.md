@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Not So Glorious Summmer"
+title: "Strike me down Zeus"
 date: 2026-06-09
 ---
 
