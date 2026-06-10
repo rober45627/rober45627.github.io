@@ -1,11 +1,14 @@
 ---
 layout: default
 ---
+<div style="margin: -2rem -1.5rem 2.5rem;">
+  <img src="/assets/images/profile.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+</div>
 <div class="post-list">
   {% for post in site.posts %}
   <div class="post-item">
-    <p class="post-date" style="view-transition-name: date-{{ forloop.index }}">{{ post.date | date: "%e %b %Y" }}</p>
-    <a class="post-title" href="{{ post.url }}" style="view-transition-name: title-{{ forloop.index }}">{{ post.title }}</a>
+    <p class="post-date">{{ post.date | date: "%e %b %Y" }}</p>
+    <a class="post-title" href="{{ post.url }}">{{ post.title }}</a>
     <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
     <a class="read-more" href="{{ post.url }}">Read more →</a>
   </div>
