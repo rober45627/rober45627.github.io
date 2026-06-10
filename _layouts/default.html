@@ -29,28 +29,26 @@
       e.preventDefault();
 
       const rect = this.getBoundingClientRect();
-      const clone = this.cloneNode(true);
 
-      clone.style.position = 'fixed';
-      clone.style.top = rect.top + 'px';
-      clone.style.left = rect.left + 'px';
-      clone.style.width = rect.width + 'px';
-      clone.style.height = rect.height + 'px';
-      clone.style.margin = '0';
-      clone.style.zIndex = '1000';
-      clone.style.background = '#F9F6F0';
-      clone.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-      clone.style.borderBottom = 'none';
-      clone.style.overflow = 'hidden';
-      document.body.appendChild(clone);
+      const box = document.createElement('div');
+      box.style.position = 'fixed';
+      box.style.top = rect.top + 'px';
+      box.style.left = rect.left + 'px';
+      box.style.width = rect.width + 'px';
+      box.style.height = rect.height + 'px';
+      box.style.background = '#F9F6F0';
+      box.style.zIndex = '1000';
+      box.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+      box.style.borderRadius = '2px';
+      document.body.appendChild(box);
 
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-          clone.style.top = '0';
-          clone.style.left = '0';
-          clone.style.width = '100vw';
-          clone.style.height = '100vh';
-          clone.style.padding = '2rem 1.5rem';
+          box.style.top = '0';
+          box.style.left = '0';
+          box.style.width = '100vw';
+          box.style.height = '100vh';
+          box.style.borderRadius = '0';
         });
       });
 
