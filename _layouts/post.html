@@ -1,11 +1,21 @@
 ---
 layout: default
 ---
-<a class="back-link" href="/">← Back</a>
-<div class="post-header">
-  <p class="post-date">{{ page.date | date: "%e %b %Y" }}</p>
-  <p class="post-title">{{ page.title }}</p>
-</div>
-<div class="post-body">
-  {{ content }}
+<style>
+  .post-content { opacity: 0; animation: fadeInUp 0.35s ease 0.25s forwards; }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<div class="post-content">
+  <a class="back-link" href="/">← Back</a>
+  <div class="post-header">
+    <p class="post-date">{{ page.date | date: "%e %b %Y" }}</p>
+    <p class="post-title">{{ page.title }}</p>
+  </div>
+  <div class="post-body">
+    {{ content }}
+  </div>
 </div>

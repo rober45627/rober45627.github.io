@@ -25,22 +25,58 @@
   document.querySelectorAll('.post-item').forEach(item => {
     item.addEventListener('click', function(e) {
       const link = this.querySelector('a.post-title');
+      const titleEl = this.querySelector('.post-title');
+      const dateEl = this.querySelector('.post-date');
       if (!link) return;
       e.preventDefault();
 
       const rect = this.getBoundingClientRect();
+      const titleRect = titleEl.getBoundingClientRect();
+      const dateRect = dateEl.getBoundingClientRect();
 
+      // Expand background box
       const box = document.createElement('div');
-      box.style.position = 'fixed';
-      box.style.top = rect.top + 'px';
-      box.style.left = rect.left + 'px';
-      box.style.width = rect.width + 'px';
-      box.style.height = rect.height + 'px';
-      box.style.background = '#F9F6F0';
-      box.style.zIndex = '1000';
-      box.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-      box.style.borderRadius = '2px';
+      box.style.cssText = `
+        position: fixed; top: ${rect.top}px; left: ${rect.left}px;
+        width: ${rect.width}px; height: ${rect.height}px;
+        background: #F9F6F0; z-index: 999;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 2px;
+      `;
       document.body.appendChild(box);
+
+      // Float the title
+      const titleClone = document.createElement('div');
+      titleClone.textContent = titleEl.textContent;
+      titleClone.style.cssText = `
+        position: fixed; top: ${titleRect.top}px; left: ${titleRect.left}px;
+        width: ${titleRect.width}px; font-family: Georgia, serif;
+        font-size: 1.35rem; font-weight: bold; color: #2a2a2a;
+        z-index: 1001; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        margin: 0; line-height: 1.4;
+      `;
+      document.body.appendChild(titleClone);
+
+      // Float the date
+      const dateClone = document.createElement('div');
+      dateClone.textContent = dateEl.textContent;
+      dateClone.style.cssText = `
+        position: fixed; top: ${dateRect.top}px; left: ${dateRect.left}px;
+        width: ${dateRect.width}px; font-family: Arial, sans-serif;
+        font-size: 0.78rem; color: #53B0AB; letter-spacing: 0.05em;
+        text-transform: uppercase; z-index: 1001;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); margin: 0;
+      `;
+      document.body.appendChild(dateClone);
+
+      // Store positions in sessionStorage for post page to read
+      const targetLeft = Math.max(20, (window.innerWidth - 660) / 2);
+      sessionStorage.setItem('titleTarget', JSON.stringify({
+        top: 120, left: targetLeft, fontSize: '1.7rem', width: Math.min(660, window.innerWidth - 40)
+      }));
+      sessionStorage.setItem('dateTarget', JSON.stringify({
+        top: 88, left: targetLeft
+      }));
 
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
@@ -49,6 +85,17 @@
           box.style.width = '100vw';
           box.style.height = '100vh';
           box.style.borderRadius = '0';
+
+          const t = JSON.parse(sessionStorage.getItem('titleTarget'));
+          const d = JSON.parse(sessionStorage.getItem('dateTarget'));
+
+          titleClone.style.top = t.top + 'px';
+          titleClone.style.left = t.left + 'px';
+          titleClone.style.width = t.width + 'px';
+          titleClone.style.fontSize = t.fontSize;
+
+          dateClone.style.top = d.top + 'px';
+          dateClone.style.left = d.left + 'px';
         });
       });
 
