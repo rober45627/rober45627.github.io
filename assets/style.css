@@ -109,3 +109,15 @@ footer {
 .post-item {
   cursor: pointer;
 }
+
+@view-transition {
+  navigation: auto;
+}
+
+.post-title {
+  view-transition-name: post-title;
+}
+
+.post-date {
+  view-transition-name: post-date;
+}
