@@ -20,3 +20,41 @@
   </div>
 </body>
 </html>
+
+<script>
+  document.querySelectorAll('.post-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+      const link = this.querySelector('a.post-title');
+      if (!link) return;
+      e.preventDefault();
+
+      const rect = this.getBoundingClientRect();
+      const clone = this.cloneNode(true);
+
+      clone.style.position = 'fixed';
+      clone.style.top = rect.top + 'px';
+      clone.style.left = rect.left + 'px';
+      clone.style.width = rect.width + 'px';
+      clone.style.height = rect.height + 'px';
+      clone.style.margin = '0';
+      clone.style.zIndex = '1000';
+      clone.style.background = '#F9F6F0';
+      clone.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+      clone.style.borderBottom = 'none';
+      clone.style.overflow = 'hidden';
+      document.body.appendChild(clone);
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          clone.style.top = '0';
+          clone.style.left = '0';
+          clone.style.width = '100vw';
+          clone.style.height = '100vh';
+          clone.style.padding = '2rem 1.5rem';
+        });
+      });
+
+      setTimeout(() => window.location.href = link.href, 520);
+    });
+  });
+</script>
